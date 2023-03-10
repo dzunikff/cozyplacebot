@@ -60,8 +60,8 @@ async def ck(interaction: Interaction):
     data = json.load(open('registered_teams.json', 'r'))
     await interaction.response.send_message(data['team_name'], ephemeral=True)
 
-##############################
+###############################
 # Running bot with token from dotenv
-##############################
+###############################
 
 bot.run(TOKEN)
