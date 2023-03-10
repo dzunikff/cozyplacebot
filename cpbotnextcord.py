@@ -33,8 +33,6 @@ async def on_ready():
 '''@bot.slash_command(guild_ids=[testingServerID])
 async def ytslashcommand(interaction: Interaction):
     await interaction.response.send_message("Hey there!")
-
-
 @bot.slash_command(name="repeat", description="repeates your message", guild_ids=[testingServerID])
 async def repeat(interaction: Interaction, message: str):
     await interaction.response.send_message(f"You said '{message}'!")'''
@@ -56,12 +54,23 @@ async def rt(interaction: Interaction):
 
 
 @bot.slash_command(name="ct", description="Просмотр зарегистрированных команд", guild_ids=[testingServerID])
-async def ck(interaction: Interaction):
+async def ct(interaction: Interaction):
     data = json.load(open('registered_teams.json', 'r'))
     await interaction.response.send_message(data['team_name'], ephemeral=True)
 
-###############################
+
+@bot.slash_command(name="tw", description="Просмотр победителей турнира", guild_ids=[testingServerID])
+async def tw(interaction: Interaction):
+    data = json.load(open('tournament_winners.json', 'r'))
+    await interaction.response.send_message(data['team_name'], ephemeral=True)
+
+
+@bot.slash_command(name="tl", description="Выход из турнира", guild_ids=[testingServerID])
+async def jt(interaction: Interaction):
+    await interaction.response.send_message(f"{interaction.user.mention}, для выхода из турнира напишите <@535113125104582666>", ephemeral=True)
+
+##############################
 # Running bot with token from dotenv
-###############################
+##############################
 
 bot.run(TOKEN)
