@@ -49,14 +49,12 @@ async def rt(interaction: Interaction):
 
 @bot.slash_command(name="ct", description="Просмотр зарегистрированных команд", guild_ids=[testingServerID])
 async def ct(interaction: Interaction):
-    datact = Teams.teams()
-    await interaction.response.send_message(datact[0], ephemeral=True)
+    await interaction.response.send_message(Teams[0, 0], ephemeral=True)
 
 
 @bot.slash_command(name="tw", description="Просмотр победителей турнира", guild_ids=[testingServerID])
 async def tw(interaction: Interaction):
-    datatw = Winners.winners()
-    await interaction.response.send_message(datatw[0], ephemeral=True)
+    await interaction.response.send_message(Winners.winners(), ephemeral=True)
 
 
 @bot.slash_command(name="tl", description="Выход из турнира", guild_ids=[testingServerID])

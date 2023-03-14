@@ -1,5 +1,6 @@
 class Teams(object):
-  teams = {
+{
+  "teams" : {
     "m1nt": {
         "Top": {
         "discord_id": "TBD",
@@ -45,3 +46,4 @@ class Teams(object):
         }
     }
   }
+}
