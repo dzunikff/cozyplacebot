@@ -30,14 +30,6 @@ async def on_ready():
     print("Bot is online!")
 
 
-'''@bot.slash_command(guild_ids=[testingServerID])
-async def ytslashcommand(interaction: Interaction):
-    await interaction.response.send_message("Hey there!")
-@bot.slash_command(name="repeat", description="repeates your message", guild_ids=[testingServerID])
-async def repeat(interaction: Interaction, message: str):
-    await interaction.response.send_message(f"You said '{message}'!")'''
-
-
 @bot.slash_command(name="st", description="Shows active tournaments", guild_ids=[testingServerID])
 async def st(interaction: Interaction):
     await interaction.response.send_message(f"{interaction.user.mention}, there are none active tournaments. Try again later!", ephemeral=True)
