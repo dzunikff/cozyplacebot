@@ -8,6 +8,7 @@ import discord
 import random
 import asyncio
 import json
+from types import SimpleNamespace
 
 
 ##############################
@@ -28,6 +29,7 @@ testingServerID = 1079665815533650000
 @bot.event
 async def on_ready():
     print("Bot is online!")
+    await bot.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.watching, name=f'Cozy Place Tournaments Bot | Created by LinHidden 🔥'))
 
 
 @bot.slash_command(name="st", description="Shows active tournaments", guild_ids=[testingServerID])
@@ -47,14 +49,14 @@ async def rt(interaction: Interaction):
 
 @bot.slash_command(name="ct", description="Просмотр зарегистрированных команд", guild_ids=[testingServerID])
 async def ct(interaction: Interaction):
-    data = json.load(open('registered_teams.json', 'r'))
-    await interaction.response.send_message(data['team_name'], ephemeral=True)
+    datact = json.load(open('test.json', 'r'))
+    await interaction.response.send_message(datact[0], ephemeral=True)
 
 
 @bot.slash_command(name="tw", description="Просмотр победителей турнира", guild_ids=[testingServerID])
 async def tw(interaction: Interaction):
-    data = json.load(open('tournament_winners.json', 'r'))
-    await interaction.response.send_message(data['team_name'], ephemeral=True)
+    datatw = json.load(open('tournament_winners.json', 'r'))
+    await interaction.response.send_message(datatw['team_name'], ephemeral=True)
 
 
 @bot.slash_command(name="tl", description="Выход из турнира", guild_ids=[testingServerID])
